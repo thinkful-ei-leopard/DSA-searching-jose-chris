@@ -39,3 +39,31 @@ console.log(binarySearch([3, 5, 6, 8, 11, 12, 14, 15, 17, 18], 16))
 // ignores values equal to or less than 12 [14,15,17,18]
 // next seq [14, 15]
 // [15], value not found return -1
+
+
+// drill 4
+// pre order: 35 25 15 14 19 27 89 79 91 90
+
+                    //            35
+                    //         /     \
+                    //        25      89
+                    //       /  \     / \
+                    //     15    27  79  91
+                    //     /\            / 
+                    //   14  19         90 
+
+
+
+
+
+
+// in order: 14 15 19 25 27   35   79    89 90 91
+
+
+// part 1
+// post order: 14, 19, 15, 27, 25, 79, 91, 90, 89, 35
+
+// part 2
+// pre order: 8,6,5,7,10,9,11
+
+
