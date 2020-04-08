@@ -24,12 +24,12 @@ indexOf = (array, value) => {
     return `item not found, number of tries: ${count}`;
 };
 
-binarySearch = (array, value, start, end) => {
+binarySearch = (array, value, start, end, count=0) => {
   start = start === undefined ? 0 : start;
   end = end === undefined ? array.length : end;
 
  if (start > end) {
-     return -1;
+     return `item not found. number of tries: ${count}`;
  }
 
  const index = Math.floor((start + end) / 2);
@@ -37,32 +37,47 @@ binarySearch = (array, value, start, end) => {
 
  console.log(start, end);
  if (item == value) {
-     return index;
+     return `found item. number of tries: ${count}, index:${index}`;
  }
  else if (item < value) {
-     return this.binarySearch(array, value, index + 1, end);
+     return this.binarySearch(array, value, index + 1, end, count += 1);
  }
  else if (item > value) {
-     return this.binarySearch(array, value, start, index - 1);
+     return this.binarySearch(array, value, start, index - 1, count += 1);
  }
 };
 
   linear = (event) => {
     event.preventDefault()
-    console.log(event.target.search.value)
     let val = this.indexOf(this.state.data, event.target.search.value)
+    this.setState({ value: val})
+  }
+
+  binary = (event) => {
+    event.preventDefault()
+    let sorted = this.state.data.sort((a, b) => a - b)
+    let val = this.binarySearch(sorted, event.target.search.value)
     this.setState({ value: val})
   }
 
   render() {
   return (
     <div className="App">
-      <p>hello world</p>
+      <h1>binary - linear search</h1>
       <form onSubmit={this.linear}>
         <label htmlFor="search"> search</label>
         <input name="search" type='text'></input>
-        <input type='submit'></input>
+        <label htmlFor='linear'>linear search</label>
+        <input type='submit' name='linear'></input>
       </form>
+
+      <form onSubmit={this.binary}>
+        <label htmlFor="search"> search</label>
+        <input name="search" type='text'></input>
+        <label htmlFor='binary'>binary search</label>
+        <input type='submit' name='binary'></input>
+      </form>
+
     {this.state.value && <p>{' '}
       {this.state.value}</p>}
     </div>
