@@ -1,3 +1,5 @@
+const BinarySearchTree = require('./binaryTree')
+
 //Drill 1
 
 function binarySearch(array, value, start, end) {
@@ -32,7 +34,7 @@ function binarySearch(array, value, start, end) {
 // console.log(binarySearch([3, 5, 6, 8, 11, 12, 14, 15, 17, 18], 8))
 
 //part 2
-console.log(binarySearch([3, 5, 6, 8, 11, 12, 14, 15, 17, 18], 16))
+// console.log(binarySearch([3, 5, 6, 8, 11, 12, 14, 15, 17, 18], 16))
 
 // finds middle value (12)
 // checks if 16 is greater than or less than 12
@@ -67,3 +69,25 @@ console.log(binarySearch([3, 5, 6, 8, 11, 12, 14, 15, 17, 18], 16))
 // pre order: 8,6,5,7,10,9,11
 
 
+// drill 5
+
+let newTree = new BinarySearchTree()
+newTree.insert(25, 25)
+newTree.insert(15, 15)
+newTree.insert(50, 50)
+newTree.insert(10, 10)
+newTree.insert(24, 24)
+newTree.insert(35, 35)
+newTree.insert(70, 70)
+newTree.insert(4, 4)
+newTree.insert(12, 12)
+newTree.insert(18, 18)
+newTree.insert(31, 31)
+newTree.insert(44, 44)
+newTree.insert(66, 66)
+newTree.insert(90, 90)
+newTree.insert(22, 22)
+
+console.log(newTree.preOrder())
+console.log(newTree.inOrder())
+console.log(newTree.postOrder())
